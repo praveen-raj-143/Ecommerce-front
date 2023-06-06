@@ -1,0 +1,19 @@
+.Nav{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-weight: bold;
+    text-decoration: none;
+}
+li{
+margin: 10px;
+}
+.active-class{
+    color: rgb(255, 136, 0);
+    text-decoration: none;
+}
+.notactive-class{
+    color: black;
+    text-decoration: none;
+}

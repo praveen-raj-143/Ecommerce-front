@@ -1,0 +1,14 @@
+.box{
+    box-shadow: 10px 10p 5pxx;
+    padding: 20px;
+    margin: auto;
+    width: 600px;
+    text-align: center;
+}
+input{
+    width: 600px;
+    height: 70px;
+    border-top: 2px;
+    border-left: 2px;
+    border-right: 2px;
+}
