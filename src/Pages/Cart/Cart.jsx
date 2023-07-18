@@ -36,6 +36,7 @@ const Cart = () => {
           <button onClick={()=>setIncrease(increase-1)} className='cartbtn'>-</button>
         </div>
       </div>
+      
       <div className='carttotl'>
         <h2>Total:₹1,75,500</h2>
         <button>place order</button>

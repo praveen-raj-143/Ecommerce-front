@@ -4,7 +4,7 @@ import Header from './Header/Header'
 import './Navbar.css'
 const Navbar = () => {
   return (
-    <div>
+    <div className='navbar'>
         <Header/>
         <ul className='Nav'>
         <li><NavLink to='/' className={({isActive})=>(isActive ? 'active-class' : 'notactive-class')}>HOME</NavLink></li>
