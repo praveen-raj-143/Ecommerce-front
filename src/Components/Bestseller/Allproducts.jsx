@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from 'react'
 
-import './Style.css'
-const Accessories = () => {
+const Allproducts = () => {
   const [detail,setDetail]=useState([])
-
+  const [limit,setLimit]=useState(8)
   useEffect(()=>{
-    fetch("https://ecommerce-backend-hgbf.onrender.com/accessories")
+    fetch(`https://ecommerce-backend-hgbf.onrender.com/accessories?limit=${limit}`)
     .then(res=>res.json())
     .then(data=>setDetail(data))
-  })
+  },[limit])
+
+  const handleLoadMore = () =>{
+    setLimit(limit+6);
+  }
   return (
     <div className='parent'>
-      {detail.filter((item)=> item.catagory=== "Accessories").map((items, index)=>{
+      {detail.map((items, index)=>{
         return(
           <div className='item' key={index}>
             <img className='itemimg' src={items.image} alt='not found'/>
@@ -23,8 +26,12 @@ const Accessories = () => {
           </div>
         )
       })}
+      <div className='LoadMoreBtnContainer'>
+          <button className='LoadMoreBtn' onClick={handleLoadMore}>Load More</button>
+          <hr className='LoadMoreBtnHr'/>
+        </div>
     </div>
   )
 }
 
-export default Accessories
+export default Allproducts

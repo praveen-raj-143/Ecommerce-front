@@ -5,7 +5,7 @@ const Ipads = () => {
   const [detail,setDetail]=useState([])
 
   useEffect(()=>{
-    fetch("http://localhost:5245/accessories")
+    fetch("https://ecommerce-backend-hgbf.onrender.com/accessories")
     .then(res=>res.json())
     .then(data=>setDetail(data))
   })

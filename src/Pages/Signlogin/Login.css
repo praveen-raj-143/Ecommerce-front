@@ -12,3 +12,11 @@ input{
     border-left: 2px;
     border-right: 2px;
 }
+.sbtbtn{
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 15px;
+}
+.sbtbtn:hover{
+    background-color: orangered;
+}
