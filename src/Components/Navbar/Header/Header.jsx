@@ -9,6 +9,7 @@ const Header = () => {
         <h3 className='luffy'><NavLink to='/signup' className={({isActive})=>(isActive ? 'active-class' : 'notactive-class')}>SignUp</NavLink></h3>
         <h3 className='luffy'><NavLink to='/login' className={({isActive})=>(isActive ? 'active-class' : 'notactive-class')}>Login</NavLink></h3>
         <h3 className='luffy'><NavLink to='/cart' className={({isActive})=>(isActive ? 'active-class' : 'notactive-class')}>Cart </NavLink></h3>
+        <h3 className='luffy'><NavLink to='/profile' className={({isActive})=>(isActive ? 'active-class' : 'notactive-class')}>Profile </NavLink></h3>
         </div>
         
     </div>

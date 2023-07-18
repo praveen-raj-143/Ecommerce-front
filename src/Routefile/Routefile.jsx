@@ -8,6 +8,7 @@ import Home from '../Pages/Home/Home'
 import Cart from '../Pages/Cart/Cart'
 import Signup from '../Pages/Signlogin/Signup'
 import Login from '../Pages/Signlogin/Login'
+import Profile from '../Pages/Signlogin/Profile/Profile'
 
 const Routefile = () => {
   
@@ -23,6 +24,7 @@ const Routefile = () => {
         <Route path='/cart' element={<Cart/>} />
         <Route path='/signup' element={<Signup/>} />
         <Route path='/login' element={<Login/>} />
+        <Route path='/profile' element={<Profile/>} />
     </Routes>
     
   )

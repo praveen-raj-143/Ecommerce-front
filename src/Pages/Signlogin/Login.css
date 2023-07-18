@@ -20,3 +20,11 @@ input{
 .sbtbtn:hover{
     background-color: orangered;
 }
+@media screen and (max-width:765px){
+    input{
+        width: 100%;
+    }
+    .box{
+        width: 100%;
+    }
+}
