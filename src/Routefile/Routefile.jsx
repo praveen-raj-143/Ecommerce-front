@@ -10,6 +10,7 @@ import Signup from '../Pages/Signlogin/Signup'
 import Login from '../Pages/Signlogin/Login'
 import Profile from '../Pages/Signlogin/Profile/Profile'
 import Order from '../Pages/Order/Order'
+import Article from '../Pages/Article.jsx/Article'
 
 const Routefile = () => {
   
@@ -27,6 +28,7 @@ const Routefile = () => {
         <Route path='/login' element={<Login/>} />
         <Route path='/profile' element={<Profile/>} />
         <Route path='/order' element={<Order/>}/>
+        <Route path='/article/:id' element={<Article/>} />
     </Routes>
     
   )

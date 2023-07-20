@@ -1,0 +1,13 @@
+.footmain{
+    background-color: orangered;
+    color: white;
+    padding-bottom: 2px;
+}
+.footercontainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.footerfooot{
+    margin-left: 20px;
+}
