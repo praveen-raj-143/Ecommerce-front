@@ -78,7 +78,7 @@ const Userdetails = () => {
         
        })}
        <div className='carttotl'>
-        <h2>Total:{price}</h2>
+        
         <Link to='/order'><button>place order</button></Link>
       </div>
     </div>
