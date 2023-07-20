@@ -11,3 +11,9 @@
 .footerfooot{
     margin-left: 20px;
 }
+@media screen and (max-width:765px){
+    .footercontainer{
+        flex-direction: column;
+        margin: 15px;
+    }
+}

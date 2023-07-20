@@ -28,3 +28,14 @@
     text-align: center;
     margin: auto;
 }
+@media screen and (max-width:765px){
+    .ratting{
+        flex-direction: column;
+    }
+    .flexcomp{
+        flex-direction: column;
+    }
+    .artdis{
+        width: 100%;
+    }
+}
