@@ -3,7 +3,8 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import './Cart.css'
 const Userdetails = () => {
-  const [increase,setIncrease]=useState(0)
+  const [increase,setIncrease]=useState(1)
+  const [price,setPrice]=useState(0)
     const [userdata,setUserdata]=useState([])
     useEffect(()=>{
         fetch("https://ecommerce-backend-hgbf.onrender.com/profile",{
@@ -20,6 +21,8 @@ const Userdetails = () => {
     .then(data=>setUserdata(data.data.cart))
     // console.log(userdata)
       }, [])
+
+
       const deleteproduct=(productId)=>{
         const deleteitem= productId
         const userId=localStorage.getItem("userId")
@@ -38,8 +41,14 @@ const Userdetails = () => {
         })
       }
       
-    
-    
+    const handleprice=()=>{
+      let ans=0;
+      userdata.map((item)=>(ans +=item.price))
+      setPrice(ans)
+    }
+    useEffect(()=>{
+      handleprice()
+    })
   return (
     <div>
        <h1>Items in Cart</h1>
@@ -57,6 +66,9 @@ const Userdetails = () => {
           <button onClick={()=>setIncrease(increase-1)} className='cartbtn'>-</button>
         </div>
         <div>
+          <p><b>{item.price*increase}</b></p>
+        </div>
+        <div>
           <button onClick={()=>deleteproduct(item._id)}>Delete</button>
         </div>
           </div>
@@ -66,7 +78,7 @@ const Userdetails = () => {
         
        })}
        <div className='carttotl'>
-        <h2>Total:₹1,75,500</h2>
+        <h2>Total:{price}</h2>
         <Link to='/order'><button>place order</button></Link>
       </div>
     </div>
