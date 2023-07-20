@@ -65,11 +65,11 @@ const Userdetails = () => {
           <p><b>{increase}</b></p>
           <button onClick={()=>setIncrease(increase-1)} className='cartbtn'>-</button>
         </div>
-        <div>
+        {/* <div>
           <p><b>{item.price*increase}</b></p>
-        </div>
-        <div>
-          <button onClick={()=>deleteproduct(item._id)}>Delete</button>
+        </div> */}
+        <div className='cartprice'>
+          <button  onClick={()=>deleteproduct(item._id)}>Delete</button>
         </div>
           </div>
           

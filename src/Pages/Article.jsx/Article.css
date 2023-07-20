@@ -1,4 +1,30 @@
 .artimage{
     width: 300px;
     height: 300px;
+    margin: 10px;
+}
+.artpost{
+    margin: 30px;
+}
+.rateimage{
+    width: 100px;
+    height: 50px;
+    margin: 5px;
+}
+.ratting{
+    display: flex;
+    flex-direction: row;
+}
+.flexcomp{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.flexcompitem{
+    margin-top: 100px;
+}
+.artdis{
+    width: 600px;
+    text-align: center;
+    margin: auto;
 }

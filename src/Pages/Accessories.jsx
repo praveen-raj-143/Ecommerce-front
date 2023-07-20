@@ -38,7 +38,7 @@ const Accessories = () => {
     <div className='parent'>
       {detail.filter((item)=> item.catagory=== "Accessories").map((items, index)=>{
         return(
-          <div className='item' key={index}>
+          <div className='item' key={index} >
             <img className='itemimg' src={items.image} onClick={()=>detailedpost(items.id, items)} alt='not found'/>
             <h3>{items.name}</h3>
             <p>Rating :</p><img className='itemrate' src={items.ratting} alt='not found'/>

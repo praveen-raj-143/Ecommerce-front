@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import {useNavigate} from 'react-router-dom'
 const Mobiles = () => {
+  const navigate = useNavigate()
+  const detailedpost=(id, items)=>{
+    // console.log(id, item)
+    navigate(`/article/${id}`,{state:{data:items}})
+  }
   // const [cart,setCart]=useState([])
   const [detail,setDetail]=useState([])
   useEffect(()=>{
@@ -30,8 +36,8 @@ const Mobiles = () => {
     <div className='parent'>
       {detail.filter((item)=> item.catagory=== "Mobile").map((items, index)=>{
         return(
-          <div className='item' key={index}>
-            <img className='itemimg' src={items.image} alt='not found'/>
+          <div className='item' key={index} >
+            <img className='itemimg' onClick={()=>detailedpost(items.id, items)} src={items.image} alt='not found'/>
             <h3>{items.name}</h3>
             <p>Rating :</p><img className='itemrate' src={items.ratting} alt='not found'/>
             <p>Offer Price : {items.price}</p>
