@@ -9,6 +9,7 @@ import Cart from '../Pages/Cart/Cart'
 import Signup from '../Pages/Signlogin/Signup'
 import Login from '../Pages/Signlogin/Login'
 import Profile from '../Pages/Signlogin/Profile/Profile'
+import Order from '../Pages/Order/Order'
 
 const Routefile = () => {
   
@@ -25,6 +26,7 @@ const Routefile = () => {
         <Route path='/signup' element={<Signup/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/profile' element={<Profile/>} />
+        <Route path='/order' element={<Order/>}/>
     </Routes>
     
   )

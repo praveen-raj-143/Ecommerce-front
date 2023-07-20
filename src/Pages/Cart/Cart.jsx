@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 import './Cart.css'
 const Userdetails = () => {
   const [increase,setIncrease]=useState(0)
@@ -66,7 +67,7 @@ const Userdetails = () => {
        })}
        <div className='carttotl'>
         <h2>Total:₹1,75,500</h2>
-        <button>place order</button>
+        <Link to='/order'><button>place order</button></Link>
       </div>
     </div>
   )
