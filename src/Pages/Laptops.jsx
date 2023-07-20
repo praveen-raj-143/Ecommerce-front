@@ -7,7 +7,7 @@ const Laptops = () => {
     .then(res=>res.json())
     .then(data=>setDetail(data))
   })
-
+  const isLoggedIn = window.localStorage.getItem("loggedIn")
   const addToCart = (productId) => {
     const product = productId
     const userId=localStorage.getItem("userId")
@@ -37,7 +37,7 @@ const Laptops = () => {
             <p>Rating :</p><img className='itemrate' src={items.ratting} alt='not found'/>
             <p>Offer Price : {items.price}</p>
             <p>Original Price : {items.oPrice}</p>
-            <button onClick={()=>addToCart(items._id)}>Add to cart</button>
+            {isLoggedIn ? <button onClick={()=>addToCart(items._id)}>Add to cart</button>: ""}
           </div>
         )
       })}
