@@ -2,7 +2,9 @@ import React, { useState,useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import './Cart.css'
+import {useNavigate} from 'react-router-dom'
 const Userdetails = () => {
+  const navigate = useNavigate()
   const [increase,setIncrease]=useState(1)
   const [price,setPrice]=useState(0)
     const [userdata,setUserdata]=useState([])
@@ -33,7 +35,7 @@ const Userdetails = () => {
         .then(data=>{ 
           if(data.data.status==="ok"){
             alert("item deleted")
-            
+            navigate('/')
           }
           else if(data.data.status==="error"){
             alert("failed to delete") 
