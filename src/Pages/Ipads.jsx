@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import axios from 'axios'
 import './Style.css'
 const Ipads = () => {
   const [detail,setDetail]=useState([])
@@ -9,6 +9,26 @@ const Ipads = () => {
     .then(res=>res.json())
     .then(data=>setDetail(data))
   })
+
+  const addToCart = (productId) => {
+    const product = productId
+    const userId=localStorage.getItem("userId")
+    console.log({productId: product,userId})
+    const data={productId: product,userId}
+    axios.post("https://ecommerce-backend-hgbf.onrender.com/cart",data)
+    // .then(data=>console.log(data.data.status))
+    .then(data=>{ 
+      if(data.data.status==="ok"){
+        alert("item added to cart")
+        window.location.href = "./cart" 
+      }
+      else if(data.data.status==="error"){
+        alert("failed to add") 
+      }
+    })
+  };
+
+
   return (
     <div className='parent'>
       {detail.filter((item)=> item.catagory=== "Ipad").map((items, index)=>{
@@ -19,7 +39,7 @@ const Ipads = () => {
             <p>Rating :</p><img className='itemrate' src={items.ratting} alt='not found'/>
             <p>Offer Price : {items.price}</p>
             <p>Original Price : {items.oPrice}</p>
-            <button>Add to cart</button>
+            <button onClick={()=>addToCart(items._id)}>Add to cart</button>
           </div>
         )
       })}

@@ -21,6 +21,7 @@ const Signin = () => {
         alert("login successfully")
         console.log(data)
         window.localStorage.setItem("token", data.data)
+        window.localStorage.setItem("userId", data.userId)
         window.localStorage.setItem("loggedIn", true)
         window.location.href = "./" 
       }

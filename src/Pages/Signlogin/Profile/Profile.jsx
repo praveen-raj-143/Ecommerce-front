@@ -13,7 +13,7 @@ const Userdetails = () => {
       
     })
     .then(res=>res.json())
-    // .then(data=> console.log(data))
+    // .then(data=> console.log(data.data))
     .then(data=>setUserdata(data.data))
       })
       //  console.log(userdata)
