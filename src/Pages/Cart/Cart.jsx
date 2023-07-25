@@ -95,17 +95,19 @@ const handleQuantityChange = (itemId, newQuantity) => {
               <img className='cartimg' src={item.image} alt="not found" />
               <p><b>{item.name}</b></p>
             </div>
-            <div className='cartprice'><p><b>{item.price}</b></p></div>
+            <div className='cartprice'><p>Price : <b>{item.price}</b></p></div>
             <div className='cartbtncomp'>
-              <span>Quantity: {item.quantity}</span>
+              
           <button onClick={() => increaseQuantity(item._id)} className='cartbtn'>+</button>
+          <span>Quantity: <b>{item.quantity}</b></span>
           <button onClick={() => decreaseQuantity(item._id)} className='cartbtn'>-</button>
           {/* <p><b>{increase}</b></p> */}
           {/* <button onClick={()=>setIncrease(increase-1)} className='cartbtn'>-</button> */}
+          <div>
+          <p>Sub total : <b>{item.price*item.quantity}</b></p>
         </div>
-        <div>
-          <p><b>{item.price*item.quantity}</b></p>
         </div>
+        
         <div className='cartprice'>
           <button  onClick={()=>deleteproduct(item._id)}>Delete</button>
         </div>
