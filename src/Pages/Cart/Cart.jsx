@@ -5,7 +5,7 @@ import './Cart.css'
 import {useNavigate} from 'react-router-dom'
 const Userdetails = () => {
   const navigate = useNavigate()
-  const [increase,setIncrease]=useState(1)
+  // const [increase,setIncrease]=useState(1)
   const [price,setPrice]=useState(0)
     const [userdata,setUserdata]=useState([])
     useEffect(()=>{
@@ -45,12 +45,46 @@ const Userdetails = () => {
       
     const handleprice=()=>{
       let ans=0;
-      userdata.map((item)=>(ans +=item.price))
+      userdata.map((item)=>(ans +=item.price*item.quantity))
       setPrice(ans)
     }
     useEffect(()=>{
       handleprice()
     })
+
+    
+
+  // const [cart, setCart] = useState([
+  //   { id: 1, name: 'Item 1', price: 10, quantity: 1 },
+  //   { id: 2, name: 'Item 2', price: 15, quantity: 2 },
+  //   // Add more items as needed
+  // ]);
+const handleQuantityChange = (itemId, newQuantity) => {
+  // let quantity=1
+    const updatedCart = userdata.map((item) =>
+      item._id === itemId ? { ...item, quantity: newQuantity } : item
+    );
+    setUserdata(updatedCart);
+    console.log(updatedCart)
+  };
+    const increaseQuantity = (itemId) => {
+    const itemToUpdate = userdata.find((item) => item._id === itemId);
+    console.log(itemToUpdate)
+    if (itemToUpdate) {
+      const newQuantity = itemToUpdate.quantity + 1;
+      handleQuantityChange(itemId, newQuantity);
+
+    }
+  };
+    const decreaseQuantity = (itemId) => {
+    const itemToUpdate = userdata.find((item) => item._id === itemId);
+    console.log(itemToUpdate)
+    if (itemToUpdate) {
+      const newQuantity = itemToUpdate.quantity - 1;
+      handleQuantityChange(itemId, newQuantity);
+
+    }
+  };
   return (
     <div>
        <h1>Items in Cart</h1>
@@ -63,13 +97,15 @@ const Userdetails = () => {
             </div>
             <div className='cartprice'><p><b>{item.price}</b></p></div>
             <div className='cartbtncomp'>
-          <button onClick={()=>setIncrease(increase+1)} className='cartbtn'>+</button>
-          <p><b>{increase}</b></p>
-          <button onClick={()=>setIncrease(increase-1)} className='cartbtn'>-</button>
+              <span>Quantity: {item.quantity}</span>
+          <button onClick={() => increaseQuantity(item._id)} className='cartbtn'>+</button>
+          <button onClick={() => decreaseQuantity(item._id)} className='cartbtn'>-</button>
+          {/* <p><b>{increase}</b></p> */}
+          {/* <button onClick={()=>setIncrease(increase-1)} className='cartbtn'>-</button> */}
         </div>
-        {/* <div>
-          <p><b>{item.price*increase}</b></p>
-        </div> */}
+        <div>
+          <p><b>{item.price*item.quantity}</b></p>
+        </div>
         <div className='cartprice'>
           <button  onClick={()=>deleteproduct(item._id)}>Delete</button>
         </div>
