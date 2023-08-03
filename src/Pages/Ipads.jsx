@@ -16,10 +16,11 @@ const Ipads = () => {
     .then(data=>setDetail(data))
   })
   const isLoggedIn = window.localStorage.getItem("loggedIn")
+  
   const addToCart = (productId) => {
     const product = productId
     const userId=localStorage.getItem("userId")
-    console.log({productId: product,userId})
+    // console.log({productId: product,userId})
     const data={productId: product,userId}
     axios.post("https://ecommerce-backend-hgbf.onrender.com/cart",data)
     // .then(data=>console.log(data.data.status))

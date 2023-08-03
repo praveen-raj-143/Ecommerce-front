@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import './Cart.css'
 import {useNavigate} from 'react-router-dom'
 const Userdetails = () => {
@@ -28,13 +28,14 @@ const Userdetails = () => {
       const deleteproduct=(productId)=>{
         const deleteitem= productId
         const userId=localStorage.getItem("userId")
-        console.log({productId: deleteitem,userId})
+        // console.log({productId: deleteitem,userId})
         const data={productId: deleteitem,userId}
         // console.log(deleteitem)
         axios.post("https://ecommerce-backend-hgbf.onrender.com/delete",data)
         .then(data=>{ 
           if(data.data.status==="ok"){
             alert("item deleted")
+            localStorage.setItem("ordred",true)
             navigate('/')
           }
           else if(data.data.status==="error"){
@@ -42,6 +43,36 @@ const Userdetails = () => {
           }
         })
       }
+      const placeorder=(productId)=>{
+        setUserdata([])
+        navigate('/order')
+      //   const deleteallitem= productId
+      //   const userId=localStorage.getItem("userId")
+      //   console.log({productId: deleteallitem,userId})
+      //   const data={productId: deleteallitem,userId}
+      //   console.log(userId)
+      //   axios.post("http://localhost:5245/order",data)
+        
+      //   .then(data=>{ 
+      //     if(data.data.status==="ok"){
+      //       alert("order placed")
+      //       navigate('/')
+      //       setUserdata([]);
+      //     }
+      //     else if(data.data.status==="error"){
+      //       alert("failed to delete") 
+      //     }
+      //   })
+      }
+      // const handlePlaceOrder = async () => {
+      //   try {
+      //     // Replace 'YOUR_API_ENDPOINT' with your actual backend API endpoint to place an order
+      //     await axios.post('http://localhost:5245/order');
+      //     setUserdata([]); // Empty the cart on successful order placement
+      //   } catch (error) {
+      //     console.error('Error placing order:', error);
+      //   }
+      // };
       
     const handleprice=()=>{
       let ans=0;
@@ -79,8 +110,10 @@ const handleQuantityChange = (itemId, newQuantity) => {
     const decreaseQuantity = (itemId) => {
     const itemToUpdate = userdata.find((item) => item._id === itemId);
     console.log(itemToUpdate)
-    if (itemToUpdate) {
+    if (itemToUpdate.quantity >= 2) {
+      
       const newQuantity = itemToUpdate.quantity - 1;
+      
       handleQuantityChange(itemId, newQuantity);
 
     }
@@ -111,6 +144,7 @@ const handleQuantityChange = (itemId, newQuantity) => {
         <div className='cartprice'>
           <button  onClick={()=>deleteproduct(item._id)}>Delete</button>
         </div>
+        {/* <button onClick={()=>deleteallproduct(item._id)}>place order</button> */}
           </div>
           
         )
@@ -119,7 +153,7 @@ const handleQuantityChange = (itemId, newQuantity) => {
        })}
        <div className='carttotl'>
         <h2>Total:{price}</h2>
-        <Link to='/order'><button>place order</button></Link>
+        <button onClick={()=>placeorder()}>place order</button>
       </div>
     </div>
   )
