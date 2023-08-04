@@ -2,7 +2,7 @@
     text-align: center;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 .shop{
     display: flex;
@@ -15,4 +15,5 @@
 .logo{
     text-decoration: none;
     color: black;
+    margin: 10px;
 }
