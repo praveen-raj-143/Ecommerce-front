@@ -51,7 +51,7 @@ const Userdetails = () => {
         console.log({productId: deleteallitem,userId})
         const data={productId: deleteallitem,userId}
         console.log(userId)
-        axios.post("http://localhost:5245/update",data)
+        axios.post("https://ecommerce-backend-hgbf.onrender.com/update",data)
         
         .then(data=>{ 
           if(data.data.status==="ok"){
