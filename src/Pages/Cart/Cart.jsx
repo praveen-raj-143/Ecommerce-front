@@ -44,25 +44,25 @@ const Userdetails = () => {
         })
       }
       const placeorder=(productId)=>{
-        setUserdata([])
-        navigate('/order')
-      //   const deleteallitem= productId
-      //   const userId=localStorage.getItem("userId")
-      //   console.log({productId: deleteallitem,userId})
-      //   const data={productId: deleteallitem,userId}
-      //   console.log(userId)
-      //   axios.post("http://localhost:5245/order",data)
+        // setUserdata([])
+        // navigate('/order')
+        const deleteallitem= productId
+        const userId=localStorage.getItem("userId")
+        console.log({productId: deleteallitem,userId})
+        const data={productId: deleteallitem,userId}
+        console.log(userId)
+        axios.post("http://localhost:5245/update",data)
         
-      //   .then(data=>{ 
-      //     if(data.data.status==="ok"){
-      //       alert("order placed")
-      //       navigate('/')
-      //       setUserdata([]);
-      //     }
-      //     else if(data.data.status==="error"){
-      //       alert("failed to delete") 
-      //     }
-      //   })
+        .then(data=>{ 
+          if(data.data.status==="ok"){
+            alert("order placed")
+            navigate('/order')
+            // setUserdata([]);
+          }
+          else if(data.data.status==="error"){
+            alert("failed to delete") 
+          }
+        })
       }
       // const handlePlaceOrder = async () => {
       //   try {
