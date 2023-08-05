@@ -22,7 +22,9 @@ const Userdetails = () => {
     // .then(data=> console.log(data))
     .then(data=>setUserdata(data.data.cart))
     // console.log(userdata)
-      }, [])
+      }, [userdata])
+
+      
 
 
       const deleteproduct=(productId)=>{
@@ -35,8 +37,7 @@ const Userdetails = () => {
         .then(data=>{ 
           if(data.data.status==="ok"){
             alert("item deleted")
-            localStorage.setItem("ordred",true)
-            navigate('/')
+                        
           }
           else if(data.data.status==="error"){
             alert("failed to delete") 
@@ -51,7 +52,7 @@ const Userdetails = () => {
         console.log({productId: deleteallitem,userId})
         const data={productId: deleteallitem,userId}
         console.log(userId)
-        axios.post("/update",data)
+        axios.post("https://ecommerce-backend-hgbf.onrender.com/update",data)
         
         .then(data=>{ 
           if(data.data.status==="ok"){
@@ -81,6 +82,7 @@ const Userdetails = () => {
     }
     useEffect(()=>{
       handleprice()
+      
     })
 
     
