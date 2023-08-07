@@ -27,7 +27,7 @@ const Ipads = () => {
     .then(data=>{ 
       if(data.data.status==="ok"){
         alert("item added to cart")
-        navigate('/cart')
+        // navigate('/cart')
       }
       else if(data.data.status==="error"){
         alert("failed to add") 
