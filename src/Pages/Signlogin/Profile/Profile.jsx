@@ -2,6 +2,11 @@ import React, { useState,useEffect } from 'react'
 import './Profile.css'
 const Userdetails = () => {
     const [userdata,setUserdata]=useState("")
+    if(userdata===null){
+      window.location.href = "./"
+      window.localStorage.clear()
+      alert("logged out!!!" )
+    }
     useEffect(()=>{
         fetch("https://ecommerce-backend-hgbf.onrender.com/profile",{
       method:"POST",
