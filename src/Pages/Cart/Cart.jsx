@@ -22,7 +22,7 @@ const Userdetails = () => {
     // .then(data=> console.log(data))
     .then(data=>setUserdata(data.data.cart))
     // console.log(userdata)
-      }, [userdata])
+      }, [])
 
       
 
