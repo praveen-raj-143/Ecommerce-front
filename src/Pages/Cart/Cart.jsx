@@ -37,7 +37,7 @@ const Userdetails = () => {
         .then(data=>{ 
           if(data.data.status==="ok"){
             alert("item deleted")
-                        
+             window.location.reload();             
           }
           else if(data.data.status==="error"){
             alert("failed to delete") 
